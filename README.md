@@ -1,0 +1,2 @@
+# EJERCICIO1-SEMANA2-PW1
+Ejercicio JavaScript /PROGRAMACIÓN WEB I
