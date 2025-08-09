@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área de Rectángulo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 50px;
+            padding: 40px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-calculate {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-clear {
+            background: #6c757d;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-clear:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .result-container {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .calculator-title {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        .input-icon .form-control {
+            padding-left: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="calculator-container">
+                    <h1 class="calculator-title">🔢 Calculadora de Área</h1>
+                    <h4 class="text-center text-muted mb-4">Rectángulo</h4>
+                    
+                    <form id="rectangleForm">
+                        <div class="mb-4">
+                            <label for="base" class="form-label">📏 Base del rectángulo (cm)</label>
+                            <div class="input-icon">
+                                <input type="text" class="form-control" id="base" placeholder="Ingresa la base">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="altura" class="form-label">📐 Altura del rectángulo (cm)</label>
+                            <div class="input-icon">
+                                <input type="text" class="form-control" id="altura" placeholder="Ingresa la altura">
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button type="button" class="btn btn-primary btn-calculate me-md-2" id="btnCalcular">
+                                ✨ Calcular Área
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-clear" id="btnLimpiar">
+                                🗑️ Limpiar
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="result-container" id="resultContainer">
+                        <p class="result-text" id="resultado">El área es: 0 cm²</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.20/sweetalert2.all.min.js"></script>
+    <!-- JavaScript personalizado -->
+    <script src="calcular.js"></script>
+</body>
+</html>
